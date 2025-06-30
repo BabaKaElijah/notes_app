@@ -19,8 +19,6 @@ A simple and responsive Notes App built with **HTML**, **CSS**, and **JavaScript
 
 ## 📸 Screenshots
 
-> Make sure you have a folder named `images/` and add screenshots like `screenshot.png`, then reference it below.
-
 ![Screenshot of Notes App](images/Capture.PNG)
 
 ## 🛠️ How It Works
@@ -31,4 +29,26 @@ A simple and responsive Notes App built with **HTML**, **CSS**, and **JavaScript
 4. Your notes are stored in your browser’s `localStorage`.
 
 ## 📂 Project Structure
+```
+notes-app/
+│
+├── index.html # Main HTML file
+├── style.css # App styling
+├── script.js # JavaScript logic
+├── images/
+│ └── delete.png # Delete icon used in each note
+│ └── Capture.PNG 
+```
 
+## 📦 Setup Instructions
+
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/your-username/notes-app.git
+   ```
+2. Open index.html in your browser to run the app.
+
+## 🔒 Storage Info
+All notes are stored locally in your browser via localStorage. No data is sent to any server.
+## 🙌 Credits
+Developed by Ellias Sithole
