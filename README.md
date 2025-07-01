@@ -28,6 +28,41 @@ A simple and responsive Notes App built with **HTML**, **CSS**, and **JavaScript
 3. Click the 🗑️ delete icon to remove a note.
 4. Your notes are stored in your browser’s `localStorage`.
 
+## 🗒️ Notes App HTML Structure
+
+This is the basic HTML structure for the Notes App, which includes a button to create notes and a container to display them dynamically.
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes App</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to your CSS file -->
+  </head>
+  <body>
+    <div class="container">
+      <h1>
+        <img src="images/notes.png" alt="Notes Icon"> Notes
+      </h1>
+
+      <!-- Button to create new notes -->
+      <button class="btn">
+        <img src="images/edit.png" alt="Edit Icon"> Create Notes
+      </button>
+
+      <!-- Container where notes will be dynamically added -->
+      <div class="notes-container">
+        <!-- Notes will appear here as editable paragraphs -->
+      </div>
+    </div>
+
+    <!-- Link to your JavaScript file -->
+    <script src="script.js"></script>
+  </body>
+</html>
+```
+
 ## 📝 Notes App Logic (JavaScript)
 
 This app allows users to create, edit, and delete simple notes directly in the browser. All notes are saved to `localStorage` to persist across page reloads.
