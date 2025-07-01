@@ -28,6 +28,78 @@ A simple and responsive Notes App built with **HTML**, **CSS**, and **JavaScript
 3. Click the 🗑️ delete icon to remove a note.
 4. Your notes are stored in your browser’s `localStorage`.
 
+## 📝 Notes App Logic (JavaScript)
+
+This app allows users to create, edit, and delete simple notes directly in the browser. All notes are saved to `localStorage` to persist across page reloads.
+
+```javascript
+// Select elements from the DOM
+const notesContainer = document.querySelector('.notes-container');
+const createBtn = document.querySelector('.btn');
+let notes = document.querySelectorAll('.input-box');
+
+// Show saved notes when the page loads
+window.addEventListener('load', showNotes);
+
+// Add a new note when the "Create" button is clicked
+createBtn.addEventListener('click', () => {
+  createNote('');
+});
+
+// Function to create a new editable note box
+function createNote(text = '') {
+  let inputBox = document.createElement('p'); // Note content
+  let img = document.createElement('img');    // Delete icon
+
+  inputBox.className = 'input-box';
+  inputBox.setAttribute('contenteditable', 'true'); // Allow text editing
+  inputBox.innerText = text;
+
+  img.src = 'images/delete.png'; // Image path for the delete icon
+  img.className = 'delete-icon';
+
+  // Delete note on icon click
+  img.addEventListener('click', () => {
+    inputBox.remove();
+    updateStorage(); // Save after deletion
+  });
+
+  // Save note whenever user types
+  inputBox.addEventListener('input', () => {
+    updateStorage();
+  });
+
+  // Attach delete icon to note and add it to the container
+  inputBox.appendChild(img);
+  notesContainer.appendChild(inputBox);
+  inputBox.focus(); // Automatically focus on new note
+  updateStorage(); // Save newly added note
+}
+
+// Save all current notes to localStorage
+function updateStorage() {
+  const allNotes = document.querySelectorAll('.input-box');
+  const notes = [];
+
+  allNotes.forEach(note => {
+    notes.push(note.innerText.trim()); // Exclude delete icon from text
+  });
+
+  localStorage.setItem('notes', JSON.stringify(notes));
+}
+
+// Load notes from localStorage and display them
+function showNotes() {
+  const savedNotes = JSON.parse(localStorage.getItem('notes'));
+
+  if (savedNotes) {
+    savedNotes.forEach(noteText => {
+      createNote(noteText);
+    });
+  }
+}
+```
+
 ## 📂 Project Structure
 ```
 notes-app/
